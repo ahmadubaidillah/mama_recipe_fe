@@ -36,7 +36,7 @@ const App = () => {
               className="new-img"
               style={{ width: "300px", height: "200px" }}
             />
-            <p className="top-left fs-5 w-50">{item.name}</p>
+            <p className="top-left fs-5 w-50 text-dark fw-bold">{item.name}</p>
           </Link>
         </Col>
       );
