@@ -23,9 +23,13 @@ const LoginContent = () => {
     e.preventDefault();
     console.log(form);
     try {
-      const res = await axios.post("http://localhost:4000/user_login", form, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://mama-recipe-api-nine.vercel.app/user_login",
+        form,
+        {
+          withCredentials: true,
+        }
+      );
       console.log(res);
       localStorage.setItem("token", res.data.accessToken);
       navigate("/home");

@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 
 // export const login = (form, handleSuccess) => {
 //   return {
@@ -18,23 +18,23 @@
 //   };
 // };
 
-// export const register = (form) => {
-//   return {
-//     type: "REGISTER",
-//     payload: new Promise((resolve, reject) => {
-//       axios
-//         .post(`${process.env.REACT_APP_BACKEND_URL}/user_register`, form)
-//         .then((response) => {
-//           console.log(response);
-//           // handleSuccess(response.data);
-//           resolve(response.data);
-//         })
-//         .catch((error) => {
-//           reject(error);
-//         });
-//     }),
-//   };
-// };
+export const register = (form) => {
+  return {
+    type: "REGISTER",
+    payload: new Promise((resolve, reject) => {
+      axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/user_register`, form)
+        .then((response) => {
+          console.log(response);
+          // handleSuccess(response.data);
+          resolve(response.data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    }),
+  };
+};
 
 // const getToken = localStorage.getItem("token");
 
