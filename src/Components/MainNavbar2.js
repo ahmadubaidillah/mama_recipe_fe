@@ -21,35 +21,35 @@ function MainNavbar() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    refreshToken();
-    // getUsers();
-  }, []);
+  // useEffect(() => {
+  //   refreshToken();
+  //   // getUsers();
+  // }, []);
 
-  const refreshToken = async () => {
-    try {
-      const response = await axios.get(
-        "https://mama-recipe-api-nine.vercel.app/token",
-        {
-          withCredentials: true,
-        }
-      );
-      console.log(response.data);
-      // console.log(response.data);
-      setToken(response.data.accessToken);
-      // const decoded = jwt_decode(response.data.accessToken);
-      // console.log(decoded.name);
-      // setName(decoded.name);
-      // setImage(decoded.image);
-      // setExpire(decoded.exp);
-    } catch (error) {
-      console.log(error);
-      if (error.response) {
-        console.log(error.response);
-        // navigate("/login");
-      }
-    }
-  };
+  // const refreshToken = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "https://mama-recipe-api-nine.vercel.app/token",
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     );
+  //     console.log(response.data);
+  //     // console.log(response.data);
+  //     setToken(response.data.accessToken);
+  //     // const decoded = jwt_decode(response.data.accessToken);
+  //     // console.log(decoded.name);
+  //     // setName(decoded.name);
+  //     // setImage(decoded.image);
+  //     // setExpire(decoded.exp);
+  //   } catch (error) {
+  //     console.log(error);
+  //     if (error.response) {
+  //       console.log(error.response);
+  //       // navigate("/login");
+  //     }
+  //   }
+  // };
 
   // const decode = jwt_decode(localStorage.getItem("token"));
   const decoded = jwt_decode(localStorage.getItem("token"));
