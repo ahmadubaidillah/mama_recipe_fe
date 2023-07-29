@@ -1,64 +1,58 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 // import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 // import { getList } from "../redux/action/user";
 
 function MainNavbar() {
-  // const [name, setName] = useState("");
-  // const [image, setImage] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [token, setToken] = useState("");
-  // const [expire, setExpire] = useState("");
-  // const [users, setUsers] = useState([]);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
+  const [expire, setExpire] = useState("");
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   refreshToken();
-  //   // getUsers();
-  // }, []);
+  useEffect(() => {
+    refreshToken();
+    // getUsers();
+  }, []);
 
-  // const refreshToken = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://mama-recipe-api-nine.vercel.app/token",
-  //       {
-  //         withCredentials: true,
-  //       }
-  //     );
-  //     console.log(response.data);
-  //     // console.log(response.data);
-  //     setToken(response.data.accessToken);
-  //     // const decoded = jwt_decode(response.data.accessToken);
-  //     // console.log(decoded.name);
-  //     // setName(decoded.name);
-  //     // setImage(decoded.image);
-  //     // setExpire(decoded.exp);
-  //   } catch (error) {
-  //     console.log(error);
-  //     if (error.response) {
-  //       console.log(error.response);
-  //       // navigate("/login");
-  //     }
-  //   }
-  // };
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get(
+        "https://mama-recipe-api-nine.vercel.app/token",
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(response.data);
+      // console.log(response.data);
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+      console.log(decoded.name);
+      setName(decoded.name);
+      setImage(decoded.image);
+      setExpire(decoded.exp);
+    } catch (error) {
+      console.log(error);
+      if (error.response) {
+        console.log(error.response);
+        // navigate("/login");
+      }
+    }
+  };
 
   // const decode = jwt_decode(localStorage.getItem("token"));
-  const token = localStorage.getItem("token");
-  const decoded = jwt_decode(token);
-  console.log(decoded.name);
-  // setName(decoded.name);
-  const name = decoded.name;
-  const image = decoded.image;
-  // setExpire(decoded.exp);
+  // console.log(decode);
+
   // const navigate = useNavigate();
 
   const Logout = async () => {
