@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     // fetch("https://randomuser.me/api/?results=50")
-    fetch("http://localhost:4000/food")
+    fetch("https://mama-recipe-api-nine.vercel.app/food")
       .then((data) => data.json())
       .then((json_result) => {
         console.log(json_result);

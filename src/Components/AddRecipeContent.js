@@ -39,7 +39,7 @@ const AddRecipeContent = () => {
     console.log(form);
     try {
       const res = await axios.post(
-        "http://localhost:4000/food_add",
+        "https://mama-recipe-api-nine.vercel.app/food_add",
         form,
         {
           headers: { "Content-Type": "multipart/form-data" },

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { editFood, getFood } from "../redux/action/food";
 import { deleteFood } from "../redux/action/food";
 import { Link, useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
 const MyRecipe = () => {
   const [recipe, setRecipe] = useState([]);
@@ -40,6 +41,7 @@ const MyRecipe = () => {
   // };
   const token = localStorage.getItem("token");
   console.log(token);
+  const decode = jwtDecode(token);
 
   // const refreshToken = async () => {
   //   try {
@@ -65,9 +67,12 @@ const MyRecipe = () => {
 
   const MyRecipe = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/food/", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://mama-recipe-api-nine.vercel.app/foodByUserId",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(response);
       setRecipe(response.data.data);
     } catch (error) {

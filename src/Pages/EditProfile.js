@@ -35,9 +35,12 @@ const EditProfile = () => {
   }, []);
   const refreshToken = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/token", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://mama-recipe-api-nine.vercel.app/token",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(response.data);
       // console.log(response.data);
       setToken(response.data.accessToken);
@@ -94,7 +97,7 @@ const EditProfile = () => {
       withCredentials: true,
     };
     axios
-      .put("http://localhost:4000/user_image", data, config)
+      .put("https://mama-recipe-api-nine.vercel.app/user_image", data, config)
       .then((response) => {
         console.log(response);
         navigate("/profile");
@@ -116,7 +119,7 @@ const EditProfile = () => {
     };
     axios
       .put(
-        "http://localhost:4000/user_edit",
+        "https://mama-recipe-api-nine.vercel.app/user_edit",
         {
           name: name,
         },

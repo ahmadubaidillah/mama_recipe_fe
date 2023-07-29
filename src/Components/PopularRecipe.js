@@ -14,9 +14,12 @@ const PopularRecipe = () => {
 
   const getRecipe = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/food", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://mama-recipe-api-nine.vercel.app/food",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(res);
       setRecipe(res.data.data);
     } catch (error) {

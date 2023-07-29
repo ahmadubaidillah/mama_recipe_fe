@@ -37,7 +37,7 @@ const DetailRecipeContent = () => {
   const MyRecipe = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/food/${id}`,
+        `https://mama-recipe-api-nine.vercel.app/food/${id}`,
         // { headers: { Authorization: `Baerer ${token}` } },
         {
           withCredentials: true,

@@ -40,7 +40,7 @@ const EditFood = () => {
   const MyRecipe = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/food/${id}`,
+        `https://mama-recipe-api-nine.vercel.app/food/${id}`,
         // { headers: { Authorization: `Baerer ${token}` } },
         {
           withCredentials: true,
@@ -64,7 +64,11 @@ const EditFood = () => {
       withCredentials: true,
     };
     axios
-      .put(`http://localhost:4000/food_edit/${id}`, form, config)
+      .put(
+        `https://mama-recipe-api-nine.vercel.app/food_edit/${id}`,
+        form,
+        config
+      )
       .then((response) => {
         console.log(response);
         alert("edit recipe berhasil");

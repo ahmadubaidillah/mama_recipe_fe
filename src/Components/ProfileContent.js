@@ -35,9 +35,12 @@ const ProfileContent = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/token", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://mama-recipe-api-nine.vercel.app/token",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(response.data);
       // console.log(response.data);
       setToken(response.data.accessToken);
@@ -63,7 +66,9 @@ const ProfileContent = () => {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("http://localhost:4000/token");
+        const response = await axios.get(
+          "https://mama-recipe-api-nine.vercel.app/token"
+        );
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
