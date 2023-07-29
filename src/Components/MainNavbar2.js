@@ -15,10 +15,10 @@ import { useParams, useNavigate } from "react-router-dom";
 function MainNavbar() {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
-  const [email, setEmail] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState([]);
+  // const [email, setEmail] = useState("");
+  // const [token, setToken] = useState("");
+  // const [expire, setExpire] = useState("");
+  // const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -56,7 +56,7 @@ function MainNavbar() {
   console.log(decoded.name);
   setName(decoded.name);
   setImage(decoded.image);
-  setExpire(decoded.exp);
+  // setExpire(decoded.exp);
   // const navigate = useNavigate();
 
   const Logout = async () => {
