@@ -38,9 +38,9 @@ function MainNavbar() {
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       console.log(decoded.name);
-      setName(decoded.name);
-      setImage(decoded.image);
-      setExpire(decoded.exp);
+      // setName(decoded.name);
+      // setImage(decoded.image);
+      // setExpire(decoded.exp);
     } catch (error) {
       console.log(error);
       if (error.response) {
@@ -51,8 +51,11 @@ function MainNavbar() {
   };
 
   // const decode = jwt_decode(localStorage.getItem("token"));
-  // console.log(decode);
-
+  const decoded = jwt_decode(localStorage.getItem("token"));
+  console.log(decoded.name);
+  setName(decoded.name);
+  setImage(decoded.image);
+  setExpire(decoded.exp);
   // const navigate = useNavigate();
 
   const Logout = async () => {
