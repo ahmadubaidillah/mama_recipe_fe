@@ -12,44 +12,50 @@ import { useParams, useNavigate } from "react-router-dom";
 // import { getList } from "../redux/action/user";
 
 function MainNavbar() {
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [email, setEmail] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState([]);
+  // const [name, setName] = useState("");
+  // const [image, setImage] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [token, setToken] = useState("");
+  // const [expire, setExpire] = useState("");
+  // const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    refreshToken();
-    // getUsers();
-  }, []);
+  // useEffect(() => {
+  //   refreshToken();
+  //   // getUsers();
+  // }, []);
 
-  const refreshToken = async () => {
-    try {
-      const response = await axios.get(
-        "https://mama-recipe-api-nine.vercel.app/token",
-        {
-          withCredentials: true,
-        }
-      );
-      console.log(response.data);
-      // console.log(response.data);
-      setToken(response.data.accessToken);
-      const decoded = jwt_decode(response.data.accessToken);
-      console.log(decoded.name);
-      setName(decoded.name);
-      setImage(decoded.image);
-      setExpire(decoded.exp);
-    } catch (error) {
-      console.log(error);
-      if (error.response) {
-        console.log(error.response);
-        // navigate("/login");
-      }
-    }
-  };
-
+  // const refreshToken = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "https://mama-recipe-api-nine.vercel.app/token",
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     );
+  //     console.log(response.data);
+  //     // console.log(response.data);
+  //     setToken(response.data.accessToken);
+  //     const decoded = jwt_decode(response.data.accessToken);
+  //     console.log(decoded.name);
+  //     setName(decoded.name);
+  //     setImage(decoded.image);
+  //     setExpire(decoded.exp);
+  //   } catch (error) {
+  //     console.log(error);
+  //     if (error.response) {
+  //       console.log(error.response);
+  //       // navigate("/login");
+  //     }
+  //   }
+  // };
+  const token = localStorage.getItem("token");
+  const decoded = jwt_decode(token);
+  console.log(decoded.name);
+  // setName(decoded.name);
+  // setImage(decoded.image);
+  const name = decoded.name;
+  const image = decoded.image;
   // const decode = jwt_decode(localStorage.getItem("token"));
   // console.log(decode);
 

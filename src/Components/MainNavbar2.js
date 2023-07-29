@@ -1,20 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 // import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { getList } from "../redux/action/user";
 
 function MainNavbar() {
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  // const [name, setName] = useState("");
+  // const [image, setImage] = useState("");
   // const [email, setEmail] = useState("");
   // const [token, setToken] = useState("");
   // const [expire, setExpire] = useState("");
@@ -52,10 +52,12 @@ function MainNavbar() {
   // };
 
   // const decode = jwt_decode(localStorage.getItem("token"));
-  const decoded = jwt_decode(localStorage.getItem("token"));
+  const token = localStorage.getItem("token");
+  const decoded = jwt_decode(token);
   console.log(decoded.name);
-  setName(decoded.name);
-  setImage(decoded.image);
+  // setName(decoded.name);
+  const name = decoded.name;
+  const image = decoded.image;
   // setExpire(decoded.exp);
   // const navigate = useNavigate();
 
