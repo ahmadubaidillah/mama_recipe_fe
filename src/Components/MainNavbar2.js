@@ -36,8 +36,8 @@ function MainNavbar() {
       console.log(response.data);
       // console.log(response.data);
       setToken(response.data.accessToken);
-      const decoded = jwt_decode(response.data.accessToken);
-      console.log(decoded.name);
+      // const decoded = jwt_decode(response.data.accessToken);
+      // console.log(decoded.name);
       // setName(decoded.name);
       // setImage(decoded.image);
       // setExpire(decoded.exp);
