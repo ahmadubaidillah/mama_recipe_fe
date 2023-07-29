@@ -45,7 +45,7 @@ function MainNavbar() {
       console.log(error);
       if (error.response) {
         console.log(error.response);
-        navigate("/login");
+        // navigate("/login");
       }
     }
   };
